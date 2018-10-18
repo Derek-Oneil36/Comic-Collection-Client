@@ -5,7 +5,27 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+const authEvents = require('./auth/events.js')
 
 $(() => {
-  // your JS code goes here
+  /* We are using a jQuery call on the sign-up-form class
+  to trigger the onSignUp function once submit is heard by the event listener.
+  */
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
+
+  /* We are using a jQuery call on the sign-in-form class
+  to trigger the onSignIn function once submit is heard by the event listener.
+  */
+  $('#sign-in-form').on('submit', authEvents.onSignIn)
+
+  /* We are using a jQuery call on the change-password-form class
+  to trigger the onChangePassword function once submit is heard by the
+  event listener.
+  */
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
+
+  /* We are using a jQuery call on the log-out-button class
+  to trigger the onLogOut function once click is heard by the event listener.
+  */
+  $('#log-out-button').on('click', authEvents.onLogOut)
 })
