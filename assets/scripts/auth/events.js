@@ -6,7 +6,7 @@ use thier exported functions in this file.
 */
 const ui = require('./ui.js')
 const api = require('./api.js')
-const store = require('../store.js')
+// const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields')
 
 /*
