@@ -7,7 +7,6 @@ use thier exported functions in this file.
 const ui = require('./ui.js')
 const api = require('./api.js')
 const store = require('../store.js')
-const engine = require('../engine.js')
 const getFormFields = require('../../../lib/get-form-fields')
 
 /*
@@ -77,68 +76,10 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-/*
-The onCreateGame function listens to an event then uses the exported
-createGame function from the api.js file to clear the game board and start a
-new game. It will call either the createGameSuccess if the function worked or
-call createGameFailure if it didn't work.
-*/
-const onCreateGame = function () {
-  // stops the page from refreshing when action is called
-  event.preventDefault()
-  api.createGame()
-    .then(ui.createGameSuccess)
-    .catch(ui.createGameFailure)
-}
-
-/*
-The onGetStats function listens to an event then uses the exported
-getStats function from the api.js file to get all the games played by the user.
-It will call either the getStatsSuccess if the function worked or call
-getStatsFailure if it didn't work.
-*/
-const onGetStats = function (event) {
-  // stops the page from refreshing when action is called
-  event.preventDefault()
-
-  api.getStats()
-    .then(ui.getStatsSuccess)
-    .catch(ui.getStatsFailure)
-}
-
-/*
-The onClicked function listens to an event then uses the exported
-clicked function from the api.js file to record a users move onto the gameboard.
-It will call either the clickedSuccess if the function worked or call
-clickedFailure if it didn't work.
-*/
-const onClicked = function (event) {
-  event.preventDefault()
-  // console.log(event.target)
-  const index = $(event.target)[0]['id']
-  store.game.index = index
-
-  if (engine.outcome(index) === 'Keep Playing') {
-    if (engine.spotCheck(index) === false) {
-      $('#display-message').html('Invalid Move! Choose Another Spot!')
-      $('#display-message').css('color', 'red')
-    } else {
-      const value = $(event.target).html(engine.addPlayer(index)).text()
-      store.game.value = value
-      api.clicked(index, value)
-        .then(ui.clickedSuccess)
-        .catch(ui.clickedFailure)
-    }
-  }
-}
-
 // we're exporting functions so that they cn be used in other files.
 module.exports = {
   onSignUp,
   onSignIn,
   onLogOut,
-  onChangePassword,
-  onCreateGame,
-  onGetStats,
-  onClicked
+  onChangePassword
 }
