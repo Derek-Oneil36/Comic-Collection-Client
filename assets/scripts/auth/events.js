@@ -47,6 +47,24 @@ const onSignIn = function (event) {
 }
 
 /*
+The onSignIn function listens to an event then uses the exported signIn function
+from the api.js file to sign a user into their account. It will call either
+the signIntSuccess if the function worked or call signInFailure if it didn't work.
+*/
+const onCreateComic = function (event) {
+  // stops the page from refreshing when action is called
+  event.preventDefault()
+
+  // creates a userData variable by using the get getFormFields function on
+  // event.target
+  const userData = getFormFields(event.target)
+
+  api.createComic(userData)
+    .then(ui.createComicSuccess)
+    .catch(ui.createComicFailure)
+}
+
+/*
 The onlogout function listens to an event then uses the exported logout function
 from the api.js file to log the user out. It will call either the logOutSuccess
 if the function worked or call logOutFailure if it didn't work.
@@ -81,5 +99,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onLogOut,
+  onCreateComic,
   onChangePassword
 }

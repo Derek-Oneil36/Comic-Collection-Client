@@ -33,6 +33,21 @@ const signIn = function (userData) {
 }
 
 /*
+The signin function allows the user to sign into the server using the information
+provided when they created their game account using ajax requests with the
+game api.
+*/
+const createComic = function (userData) {
+  return $.ajax({
+    url: config.apiUrl + 'comics',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'POST'
+  })
+}
+
+/*
 The log out function signs the user out of the server with the ajax request
 on the game api.
 */
@@ -61,65 +76,11 @@ const changePassword = function (password) {
   })
 }
 
-/*
-create game allows a user to clear the gameboard and start a new game
-communicating with the game server by calling and returning the ajax call
-on the game api.
-*/
-const createGame = function () {
-  return $.ajax({
-    url: config.apiUrl + 'games',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    method: 'POST'
-  })
-}
-
-/*
-The get stats function returns all the games played/recorded by the server
-that was stored in their account using the ajax call on the game api.
-*/
-const getStats = function () {
-  return $.ajax({
-    url: config.apiUrl + 'games',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    method: 'GET'
-  })
-}
-
-/*
-the clicked function will return the ajax request to update the gameboard
-on the server side.
-*/
-const clicked = function (index, value) {
-  return $.ajax({
-    url: config.apiUrl + `games/${store.game.id}`,
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    method: 'PATCH',
-    data: {
-      'game': {
-        'cell': {
-          'index': `${index}`,
-          'value': `${value}`
-        },
-        'over': `${store.game.over}`
-      }
-    }
-  })
-}
-
 // exporting the functions on this file so they can be used in other files.
 module.exports = {
   signUp,
   signIn,
   logOut,
   changePassword,
-  createGame,
-  getStats,
-  clicked
+  createComic
 }
