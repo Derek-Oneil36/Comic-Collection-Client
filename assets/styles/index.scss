@@ -5,10 +5,35 @@ head {
 }
 
 body {
-  background-color: #445c82;
+  background-image: url('https://i.imgur.com/aiVOjMi.jpg');
+  background-color: #cccccc;
+  height: 500px;
+  background-position: top;
+
+  background-size: cover;
+  position: relative;
   text-align: center;
 }
+.navbar {
+  background-color: #cccccc;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
+.navbar a {
+  float: left;
+  display: block;
+  color: #000000;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+a:hover{
+color: white;
+}
 .wrapper {
   margin-left: auto;
   margin-right: auto;
