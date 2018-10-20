@@ -6,17 +6,27 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-        <div id="wrapper">
+
+      <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#sing-up">Sign Up</a>
+        <a href="#sign-in">Sign In</a>
+        <a href="#change-password">Change Password</a>
+        <a href="#sign-out">Sign Out</a>
+      </div>
+
+      <br>
+
+      <div id="wrapper">
         <h1>comicCollector</h1>
         <h3 id="display-message"></h3>
 
-        <form id="sign-up-form">
+        <form id="sign-up-form" class="hidden">
             <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
             <input required type="password" name="credentials[password]" placeholder="Enter Password"/>
             <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
@@ -25,10 +35,19 @@
 
         <br>
 
-        <form id="sign-in-form">
+        <form id="sign-in-form" class="hidden">
             <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
             <input required type="password" name="credentials[password]" placeholder="Enter Password"/>
             <input type="submit" value="Log In">
+        </form>
+
+        <br>
+
+        <form id="create-comic-form" class="hidden">
+          <legend>Upload A Comic</legend>
+            <input required type="number" name="comic[issue]" placeholder="Enter Issue #"/>
+            <input required type="text" name="comic[title]" placeholder="Enter Title"/>
+            <input type="submit" value="Upload">
         </form>
 
         <br>
