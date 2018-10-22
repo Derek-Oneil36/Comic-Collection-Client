@@ -47,6 +47,16 @@ const createComic = function (userData) {
   })
 }
 
+const updateComic = function (userData) {
+  return $.ajax({
+    url: config.apiUrl + `comics/${userData.id}`,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'PATCH',
+    data: userData
+  })
+}
 /*
 The log out function signs the user out of the server with the ajax request
 on the game api.
@@ -82,5 +92,6 @@ module.exports = {
   signIn,
   logOut,
   changePassword,
-  createComic
+  createComic,
+  updateComic
 }

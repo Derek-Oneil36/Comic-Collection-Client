@@ -51,6 +51,10 @@ const signInFailure = function () {
 const logOutSuccess = function () {
   $('#display-message').html('You Are Now Logged Out.')
   $('#display-message').css('color', 'green')
+  $('#sign-in-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#update-comic-form').trigger('reset')
+  $('#create-comic-form').trigger('reset')
   $('#change-password-form').trigger('reset')
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
@@ -64,6 +68,9 @@ const logOutSuccess = function () {
 const logOutFailure = function () {
   $('#display-message').html('Failed to Logout, Please Try Again.')
   $('#display-message').css('color', 'red')
+  $('#sign-in-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#update-comic-form').trigger('reset')
   $('#create-comic-form').trigger('reset')
   $('#change-password-form').trigger('reset')
 }
@@ -80,6 +87,23 @@ const createComicSuccess = function () {
 const createComicFailure = function () {
   $('#display-message').html('Failed! Please Try Again.')
   $('#display-message').css('color', 'red')
+  $('#create-comic-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+}
+
+const updateComicSuccess = function () {
+  $('#display-message').html('Comic Saved!')
+  $('#display-message').css('color', 'green')
+  $('#update-comic-form').trigger('reset')
+  $('#create-comic-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+}
+
+// Will display a red message informing the user the action failed.
+const updateComicFailure = function () {
+  $('#display-message').html('Failed! Please Try Again.')
+  $('#display-message').css('color', 'red')
+  $('#update-comic-form').trigger('reset')
   $('#create-comic-form').trigger('reset')
   $('#change-password-form').trigger('reset')
 }
@@ -108,6 +132,8 @@ module.exports = {
   logOutFailure,
   createComicSuccess,
   createComicFailure,
+  updateComicSuccess,
+  updateComicFailure,
   changePasswordSuccess,
   changePasswordFailure
 }
