@@ -43,7 +43,8 @@ const createComic = function (userData) {
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    method: 'POST'
+    method: 'POST',
+    data: userData
   })
 }
 
