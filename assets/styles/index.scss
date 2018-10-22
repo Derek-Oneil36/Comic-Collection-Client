@@ -5,15 +5,30 @@ head {
 }
 
 body {
-  background-color: #445c82;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url('https://i.imgur.com/aiVOjMi.jpg');
+  background-color: #cccccc;
+  height: 500px;
+  background-position: top;
+  background-size: cover;
+  position: relative;
   text-align: center;
 }
 
-.wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: 900px;
+
+a:hover {
+  color: white;
 }
+
+
+
+input [type=text] {
+border: none;
+border-bottom: 3px solid black;
+}
+
 
 .hidden {
   display: none;
