@@ -28,6 +28,11 @@ $(() => {
   */
   $('#update-comic-form').on('submit', authEvents.onUpdateComic)
 
+  /* We are using a jQuery call on the sign-in-form class
+  to trigger the onSignIn function once submit is heard by the event listener.
+  */
+  $('#delete-comic-form').on('submit', authEvents.onDeleteComic)
+
   /* We are using a jQuery call on the change-password-form class
   to trigger the onChangePassword function once submit is heard by the
   event listener.
