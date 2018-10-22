@@ -16,7 +16,6 @@
 
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
       <a class="nav-item nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-register" aria-selected="false">Register</a>
       <a class="nav-item nav-link" id="nav-sign-in-tab" data-toggle="tab" href="#nav-sign-in" role="tab" aria-controls="nav-sign-in" aria-selected="false">Sign In</a>
       <a class="nav-item nav-link" id="nav-create-comic-tab" data-toggle="tab" href="#nav-create-comic" role="tab" aria-controls="nav-create-comic" aria-selected="false">Upload</a>
@@ -110,6 +109,13 @@
         <input required type="text" name="comic[title]" placeholder="Update Title"/>
         <br>
         <input type="submit" value="Update">
+      </form>
+
+      <form id="delete-comic-form">
+        <legend>Remove A Comic By ID</legend>
+        <input required type="number" name="comic[id]" placeholder="Enter Comic ID #"/>
+        <br>
+        <input type="submit" value="Remove">
       </form>
 
     </div>
