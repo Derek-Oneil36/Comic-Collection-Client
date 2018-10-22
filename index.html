@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>cC</title>
+  <title>CC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -21,113 +21,88 @@
       <a class="nav-item nav-link upload-tab hidden" id="nav-create-comic-tab" data-toggle="tab" href="#nav-create-comic" role="tab" aria-controls="nav-create-comic" aria-selected="false">Upload</a>
       <a class="nav-item nav-link update-tab hidden" id="nav-update-comic-tab" data-toggle="tab" href="#nav-update-comic" role="tab" aria-controls="nav-update-comic" aria-selected="false">Update</a>
       <a class="nav-item nav-link change-password-tab hidden" id="nav-change-password-tab" data-toggle="tab" href="#nav-change-password" role="tab" aria-controls="nav-change-password" aria-selected="false">Change Password</a>
+      <span><button  class="hidden" id="log-out-button">Log out</button></span>
     </div>
 
   </nav>
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
-      <h1>Your Collection</h1>
-
-    </div>
-    <br>
     <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
 
         <h1>ComiCollector</h1>
       <h3 id="display-message"></h3>
-      <legend>Register</legend>
+
       <form id="sign-up-form">
+        <legend>Register</legend>
         <input required type="email" name="credentials[email]" placeholder="Email"/>
         <input required type="password" name="credentials[password]" placeholder="Password"/>
         <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
         <br>
         <input type="submit" value="Register">
       </form>
-
     </div>
     <br>
-    <div class="tab-pane fade" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab">
-
-        <h1>ComiCollector</h1>
-      <h3 id="display-message"></h3>
-      <legend>Sign In</legend>
-      <form id="sign-in-form">
-        <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
-        <input required type="password" name="credentials[password]" placeholder="Enter Password"/>
-        <br>
-        <input type="submit" value="Sign In">
+    <div class="tab-pane fade show active" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab">
+      <h1>ComiCollector</h1>
+        <h3 id="display-message"></h3>
+          <form id="sign-in-form">
+            <legend>Sign In</legend>
+              <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
+              <input required type="password" name="credentials[password]" placeholder="Enter Password"/>
+    <br>
+              <input type="submit" value="Sign In">
           </form>
-
     </div>
 
     <br>
 
     <div class="tab-pane fade" id="nav-change-password" role="tabpanel" aria-labelledby="nav-change-password">
-
-      <h1>ComiCollector</h1>
       <h3 id="display-message"></h3>
-      <form id="change-password-form">
-        <legend>Change Password</legend>
-        <input required type="password" name="passwords[old]" placeholder="Enter Old Password"/>
-        <input required type="password" name="passwords[new]" placeholder="Enter New Password"/>
-        <br>
-        <input type="submit">
-          </form>
-
+        <form id="change-password-form" class='hidden'>
+          <legend>Change Password</legend>
+          <input required type="password" name="passwords[old]" placeholder="Enter Old Password"/>
+          <input required type="password" name="passwords[new]" placeholder="Enter New Password"/>
+    <br>
+          <input type="submit">
+        </form>
     </div>
 
     <br>
 
     <div class="tab-pane fade" id="nav-create-comic" role="tabpanel" aria-labelledby="nav-create-cmomic">
-
-      <h1>ComiCollector</h1>
       <h3 id="display-message"></h3>
-      <form id="create-comic-form">
-        <legend>Upload A Comic</legend>
-        <input required type="number" name="comic[issue]" placeholder="Enter Issue #"/>
-        <input required type="text" name="comic[title]" placeholder="Enter Title"/>
-        <br>
-        <input type="submit" value="Upload">
-      </form>
-
+        <form id="create-comic-form" class='hidden'>
+          <legend>Upload A Comic</legend>
+          <input required type="number" name="comic[issue]" placeholder="Enter Issue #"/>
+          <input required type="text" name="comic[title]" placeholder="Enter Title"/>
+      <br>
+          <input type="submit" value="Upload">
+        </form>
     </div>
 
-    <br>
+      <br>
 
     <div class="tab-pane fade" id="nav-update-comic" role="tabpanel" aria-labelledby="nav-update-cmomic">
-
-      <h1>ComiCollector</h1>
       <br>
-      <h3 id="display-message"></h3>
-      <form id="update-comic-form">
-        <legend>Update A Comic</legend>
-        <input required type="number" name="comic[id]" placeholder="Enter Comic ID #"/>
-        <input required type="number" name="comic[issue]" placeholder="Update Issue #"/>
-        <input required type="text" name="comic[title]" placeholder="Update Title"/>
-        <br>
-        <input type="submit" value="Update">
-      </form>
-
-      <form id="delete-comic-form">
-        <legend>Remove A Comic By ID</legend>
-        <input required type="number" name="comic[id]" placeholder="Enter Comic ID #"/>
-        <br>
-        <input type="submit" value="Remove">
-      </form>
-
+        <h3 id="display-message"></h3>
+          <form id="update-comic-form" class='hidden'>
+            <legend>Update A Comic</legend>
+            <input required type="number" name="comic[id]" placeholder="Enter Comic ID #"/>
+            <input required type="number" name="comic[issue]" placeholder="Update Issue #"/>
+            <input required type="text" name="comic[title]" placeholder="Update Title"/>
+      <br>
+            <input type="submit" value="Update">
+          </form>
+      <br>
+          <form id="delete-comic-form" class='hidden'>
+            <legend>Remove A Comic By ID</legend>
+            <input required type="number" name="comic[id]" placeholder="Enter Comic ID #"/>
+      <br>
+            <input type="submit" value="Remove">
+          </form>
     </div>
-
-
   </div>
 
-  <br>
-
-
-
-    <br>
-    <span><button id="log-out-button" class="hidden">Log out</button></span>
-
-    </div>
 </body>
 
 </html>
