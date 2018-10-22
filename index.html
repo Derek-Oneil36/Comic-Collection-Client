@@ -1,67 +1,130 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>cC</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
+<head>
+  <title>cC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#sing-up">Sign Up</a>
-        <a href="#sign-in">Sign In</a>
-        <a href="#change-password">Change Password</a>
-        <a href="#sign-out">Sign Out</a>
-      </div>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
+<body>
+
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+      <a class="nav-item nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-register" aria-selected="false">Register</a>
+      <a class="nav-item nav-link" id="nav-sign-in-tab" data-toggle="tab" href="#nav-sign-in" role="tab" aria-controls="nav-sign-in" aria-selected="false">Sign In</a>
+      <a class="nav-item nav-link" id="nav-create-comic-tab" data-toggle="tab" href="#nav-create-comic" role="tab" aria-controls="nav-create-comic" aria-selected="false">Upload</a>
+      <a class="nav-item nav-link" id="nav-update-comic-tab" data-toggle="tab" href="#nav-update-comic" role="tab" aria-controls="nav-update-comic" aria-selected="false">Update</a>
+      <a class="nav-item nav-link" id="nav-change-password-tab" data-toggle="tab" href="#nav-change-password" role="tab" aria-controls="nav-change-password" aria-selected="false">Change Password</a>
+      <a class="nav-item nav-link" id="nav-sign-out-tab" data-toggle="tab" href="#nav-sign-out" role="tab" aria-controls="nav-sign-out" aria-selected="false">Sign Out</a>
+
+
+    </div>
+
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+      <h1>Your Collection</h1>
+
+    </div>
+    <br>
+    <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+
+        <h1>ComiCollector</h1>
+      <h3 id="display-message"></h3>
+      <legend>Register</legend>
+      <form id="sign-up-form">
+        <input required type="email" name="credentials[email]" placeholder="Email"/>
+        <input required type="password" name="credentials[password]" placeholder="Password"/>
+        <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
+        <br>
+        <input type="submit" value="Register">
+      </form>
+
+    </div>
+    <br>
+    <div class="tab-pane fade" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab">
+
+        <h1>ComiCollector</h1>
+      <h3 id="display-message"></h3>
+      <legend>Sign In</legend>
+      <form id="sign-in-form">
+        <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
+        <input required type="password" name="credentials[password]" placeholder="Enter Password"/>
+        <br>
+        <input type="submit" value="Sign In">
+          </form>
+
+    </div>
+
+    <br>
+
+    <div class="tab-pane fade" id="nav-change-password" role="tabpanel" aria-labelledby="nav-change-password">
+
+      <h1>ComiCollector</h1>
+      <h3 id="display-message"></h3>
+      <form id="change-password-form">
+        <legend>Change Password</legend>
+        <input required type="password" name="passwords[old]" placeholder="Enter Old Password"/>
+        <input required type="password" name="passwords[new]" placeholder="Enter New Password"/>
+        <br>
+        <input type="submit">
+          </form>
+
+    </div>
+
+    <br>
+
+    <div class="tab-pane fade" id="nav-create-comic" role="tabpanel" aria-labelledby="nav-create-cmomic">
+
+      <h1>ComiCollector</h1>
+      <h3 id="display-message"></h3>
+      <form id="create-comic-form">
+        <legend>Upload A Comic</legend>
+        <input required type="number" name="comic[issue]" placeholder="Enter Issue #"/>
+        <input required type="text" name="comic[title]" placeholder="Enter Title"/>
+        <br>
+        <input type="submit" value="Upload">
+      </form>
+
+    </div>
+
+    <br>
+
+    <div class="tab-pane fade" id="nav-update-comic" role="tabpanel" aria-labelledby="nav-update-cmomic">
+
+      <h1>ComiCollector</h1>
       <br>
-
-      <div id="wrapper">
-        <h1>comicCollector</h1>
-        <h3 id="display-message"></h3>
-
-        <form id="sign-up-form" class="hidden">
-            <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
-            <input required type="password" name="credentials[password]" placeholder="Enter Password"/>
-            <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
-            <input type="submit" value="Sign Up">
-        </form>
-
+      <h3 id="display-message"></h3>
+      <form id="update-comic-form">
+        <legend>Update A Comic</legend>
+        <input required type="number" name="comic[id]" placeholder="Enter Comic ID #"/>
+        <input required type="number" name="comic[issue]" placeholder="Update Issue #"/>
+        <input required type="text" name="comic[title]" placeholder="Update Title"/>
         <br>
+        <input type="submit" value="Update">
+      </form>
 
-        <form id="sign-in-form" class="hidden">
-            <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
-            <input required type="password" name="credentials[password]" placeholder="Enter Password"/>
-            <input type="submit" value="Log In">
-        </form>
+    </div>
 
-        <br>
 
-        <form id="create-comic-form" class="hidden">
-          <legend>Upload A Comic</legend>
-            <input required type="number" name="comic[issue]" placeholder="Enter Issue #"/>
-            <input required type="text" name="comic[title]" placeholder="Enter Title"/>
-            <input type="submit" value="Upload">
-        </form>
+  </div>
 
-        <br>
+  <br>
 
-        <form id="change-password-form" class="hidden">
-            <legend>Change Password</legend>
-            <input required type="password" name="passwords[old]" placeholder="Enter Old Password"/>
-            <input required type="password" name="passwords[new]" placeholder="Enter New Password"/>
-            <input type="submit">
-        </form>
 
-          <br>
-          <span><button id="log-out-button" class="hidden">Log out</button></span>
 
-          </div>
-      </body>
-  </html>
+    <br>
+    <span><button id="log-out-button" class="hidden">Log out</button></span>
+
+    </div>
+</body>
+
+</html>
