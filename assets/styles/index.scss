@@ -32,10 +32,15 @@ border: none;
 border-bottom: 3px solid black;
 }
 
-button {
-  background-color: transparent;
+.all {
+  float: left;
+}
+
+.logout {
   float: right;
 }
+
+
 
 .hidden {
   display: none;

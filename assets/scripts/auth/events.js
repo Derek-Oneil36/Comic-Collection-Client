@@ -65,7 +65,10 @@ if the function worked or call logOutFailure if it didn't work.
 */
 const onAllComics = function (event) {
   event.preventDefault()
-  api.allComics()
+
+  const userData = getFormFields(event.target)
+
+  api.allComics(userData)
     .then(ui.allComicsSuccess)
     .catch(ui.allComicsFailure)
 }

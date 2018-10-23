@@ -37,6 +37,7 @@ const signInSuccess = function (response) {
   $('#sign-in-form').addClass('hidden')
   $('.change-password-tab').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
+  $('#all-comics-button').removeClass('hidden')
   $('#log-out-button').removeClass('hidden')
   $('.upload-tab').removeClass('hidden')
   $('#create-comic-form').removeClass('hidden')
@@ -73,6 +74,7 @@ const logOutSuccess = function () {
   $('#sign-in-form').removeClass('hidden')
   $('.change-password-tab').addClass('hidden')
   $('#change-password-form').addClass('hidden')
+  $('#all-comics-button').addClass('hidden')
   $('#log-out-button').addClass('hidden')
   $('.upload-tab').addClass('hidden')
   $('#create-comic-form').addClass('hidden')
@@ -98,9 +100,8 @@ const logOutFailure = function () {
 
 // Will display a green message informing the user the action was successful.
 const getComicSuccess = function (data) {
-  $('#display-message').html(`${data.comics}`)
-  //  $('#display-message').html('Comic Saved!')
-  //  $('#display-message').css('color', 'green')
+  $('#display-message').html(`ID: ${data.comic.id} Title: ${data.comic.title} Issue: ${data.comic.issue}`)
+  $('#display-message').css('color', 'green')
   $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')
@@ -110,7 +111,7 @@ const getComicSuccess = function (data) {
 
 // Will display a red message informing the user the action failed.
 const getComicFailure = function () {
-  $('#display-message').html('Failed! Please Try Again.')
+  $('#display-message').html("Try Again, Comic Dosen't Exist.")
   $('#display-message').css('color', 'red')
   $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
@@ -120,9 +121,9 @@ const getComicFailure = function () {
 }
 
 // Will display a green message informing the user the action was successful.
-const allComicsSuccess = function () {
-//  $('#display-message').html('Comic Saved!')
-//  $('#display-message').css('color', 'green')
+const allComicsSuccess = function (data) {
+  $('#display-message').html(`You have ${data.comics.length} comics in the database.`)
+  $('#display-message').css('color', 'green')
   $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')
@@ -142,13 +143,14 @@ const allComicsFailure = function () {
 }
 
 // Will display a green message informing the user the action was successful.
-const createComicSuccess = function () {
+const createComicSuccess = function (response) {
   $('#display-message').html('Comic Saved!')
   $('#display-message').css('color', 'green')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')
   $('#create-comic-form').trigger('reset')
   $('#change-password-form').trigger('reset')
+  store.comic = response.comic
 }
 
 // Will display a red message informing the user the action failed.
