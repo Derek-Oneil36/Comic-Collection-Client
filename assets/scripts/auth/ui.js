@@ -42,6 +42,8 @@ const signInSuccess = function (response) {
   $('#create-comic-form').removeClass('hidden')
   $('.update-tab').removeClass('hidden')
   $('#update-comic-form').removeClass('hidden')
+  $('.your-comics-tab').removeClass('hidden')
+  $('#your-comics-form').removeClass('hidden')
   $('#delete-comic-form').removeClass('hidden')
   // $('#get-comic').removeClass('hidden')
 }
@@ -64,6 +66,7 @@ const logOutSuccess = function () {
   $('#update-comic-form').trigger('reset')
   $('#create-comic-form').trigger('reset')
   $('#change-password-form').trigger('reset')
+  $('#your-comics-form').trigger('reset')
   $('.register-tab').removeClass('hidden')
   $('#sign-up-form').removeClass('hidden')
   $('.sign-in-tab').removeClass('hidden')
@@ -75,6 +78,8 @@ const logOutSuccess = function () {
   $('#create-comic-form').addClass('hidden')
   $('.update-tab').addClass('hidden')
   $('#update-comic-form').addClass('hidden')
+  $('.your-comics-tab').addClass('hidden')
+  $('#your-comics-form').addClass('hidden')
   $('#delete-comic-form').addClass('hidden')
   // $('#get-comic').addClass('hidden')
 }
@@ -85,6 +90,51 @@ const logOutFailure = function () {
   $('#display-message').css('color', 'red')
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
+  $('#update-comic-form').trigger('reset')
+  $('#delete-comic-form').trigger('reset')
+  $('#create-comic-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+}
+
+// Will display a green message informing the user the action was successful.
+const getComicSuccess = function (data) {
+  $('#display-message').html(`${data.comics}`)
+  //  $('#display-message').html('Comic Saved!')
+  //  $('#display-message').css('color', 'green')
+  $('#your-comics-form').trigger('reset')
+  $('#update-comic-form').trigger('reset')
+  $('#delete-comic-form').trigger('reset')
+  $('#create-comic-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+}
+
+// Will display a red message informing the user the action failed.
+const getComicFailure = function () {
+  $('#display-message').html('Failed! Please Try Again.')
+  $('#display-message').css('color', 'red')
+  $('#your-comics-form').trigger('reset')
+  $('#update-comic-form').trigger('reset')
+  $('#delete-comic-form').trigger('reset')
+  $('#create-comic-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+}
+
+// Will display a green message informing the user the action was successful.
+const allComicsSuccess = function () {
+//  $('#display-message').html('Comic Saved!')
+//  $('#display-message').css('color', 'green')
+  $('#your-comics-form').trigger('reset')
+  $('#update-comic-form').trigger('reset')
+  $('#delete-comic-form').trigger('reset')
+  $('#create-comic-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+}
+
+// Will display a red message informing the user the action failed.
+const allComicsFailure = function () {
+  $('#display-message').html('Failed! Please Try Again.')
+  $('#display-message').css('color', 'red')
+  $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')
   $('#create-comic-form').trigger('reset')
@@ -171,6 +221,10 @@ module.exports = {
   signInFailure,
   logOutSuccess,
   logOutFailure,
+  getComicSuccess,
+  getComicFailure,
+  allComicsSuccess,
+  allComicsFailure,
   createComicSuccess,
   createComicFailure,
   updateComicSuccess,

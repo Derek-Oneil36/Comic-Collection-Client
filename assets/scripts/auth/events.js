@@ -46,6 +46,30 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
+const onGetComic = function (event) {
+  // stops the page from refreshing when action is called
+  event.preventDefault()
+  // creates a userData variable by using the get getFormFields function on
+  // event.target
+  const userData = getFormFields(event.target)
+
+  api.getComic(userData)
+    .then(ui.getComicSuccess)
+    .catch(ui.getComicFailure)
+}
+
+/*
+The onlogout function listens to an event then uses the exported logout function
+from the api.js file to log the user out. It will call either the logOutSuccess
+if the function worked or call logOutFailure if it didn't work.
+*/
+const onAllComics = function (event) {
+  event.preventDefault()
+  api.allComics()
+    .then(ui.allComicsSuccess)
+    .catch(ui.allComicsFailure)
+}
+
 /*
 The onSignIn function listens to an event then uses the exported signIn function
 from the api.js file to sign a user into their account. It will call either
@@ -133,6 +157,8 @@ module.exports = {
   onSignUp,
   onSignIn,
   onLogOut,
+  onGetComic,
+  onAllComics,
   onCreateComic,
   onUpdateComic,
   onDeleteComic,

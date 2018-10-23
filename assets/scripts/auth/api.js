@@ -32,6 +32,16 @@ const signIn = function (userData) {
   })
 }
 
+const getComic = function (userData) {
+  return $.ajax({
+    url: config.apiUrl + `comics/${userData.comic.id}`,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'GET'
+  })
+}
+
 /*
 The signin function allows the user to sign into the server using the information
 provided when they created their game account using ajax requests with the
@@ -48,9 +58,19 @@ const createComic = function (userData) {
   })
 }
 
+const allComics = function () {
+  return $.ajax({
+    url: config.apiUrl + 'comics',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'GET'
+  })
+}
+
 const updateComic = function (userData) {
   return $.ajax({
-    url: config.apiUrl + `comics/${userData.id}`,
+    url: config.apiUrl + `comics/${userData.comic.id}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -61,7 +81,7 @@ const updateComic = function (userData) {
 
 const deleteComic = function (userData) {
   return $.ajax({
-    url: config.apiUrl + `comics/${userData}`,
+    url: config.apiUrl + `comics/${userData.comic.id}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -102,6 +122,8 @@ module.exports = {
   signUp,
   signIn,
   logOut,
+  getComic,
+  allComics,
   changePassword,
   createComic,
   updateComic,

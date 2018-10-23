@@ -21,6 +21,16 @@ $(() => {
   /* We are using a jQuery call on the sign-in-form class
   to trigger the onSignIn function once submit is heard by the event listener.
   */
+  $('#your-comics-form').on('submit', authEvents.onGetComic)
+
+  /* We are using a jQuery call on the sign-in-form class
+  to trigger the onSignIn function once submit is heard by the event listener.
+  */
+  $('#all-comics-button').on('submit', authEvents.onAllComics)
+
+  /* We are using a jQuery call on the sign-in-form class
+  to trigger the onSignIn function once submit is heard by the event listener.
+  */
   $('#create-comic-form').on('submit', authEvents.onCreateComic)
 
   /* We are using a jQuery call on the sign-in-form class
