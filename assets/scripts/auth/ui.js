@@ -122,7 +122,18 @@ const getComicFailure = function () {
 
 // Will display a green message informing the user the action was successful.
 const allComicsSuccess = function (data) {
-  $('#display-message').html(`You have ${data.comics.length} comics in the database.`)
+  $('#display-message').html('')
+  data.comics.forEach(comic => {
+    const comicHTML = (`
+     <h3>${comic.title}</h3>
+     <p>Issue: ${comic.issue}</p>
+     <p>ID: ${comic.id}<p>
+     `)
+    $('#display-message').append(comicHTML)
+    $('.reset').trigger('reset')
+  })
+
+  // $('#display-message').html(`You have ${comicHTML} comics in the database.`)
   $('#display-message').css('color', 'green')
   $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
