@@ -4,7 +4,7 @@ let apiUrl
 const apiUrls = {
 
   production: 'https://dry-fortress-76779.herokuapp.com',
-  development: 'http://localhost:4741/'
+  development: 'http://localhost:4741'
 }
 
 if (window.location.hostname === 'localhost') {

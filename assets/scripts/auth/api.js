@@ -13,7 +13,7 @@ account on the server using an ajax call with the game api.
 */
 const signUp = function (userData) {
   return $.ajax({
-    url: config.apiUrl + 'sign-up',
+    url: config.apiUrl + '/sign-up',
     method: 'POST',
     data: userData
   })
@@ -26,7 +26,7 @@ game api.
 */
 const signIn = function (userData) {
   return $.ajax({
-    url: config.apiUrl + 'sign-in',
+    url: config.apiUrl + '/sign-in',
     method: 'POST',
     data: userData
   })
@@ -34,7 +34,7 @@ const signIn = function (userData) {
 
 const getComic = function (userData) {
   return $.ajax({
-    url: config.apiUrl + `comics/${userData.comic.id}`,
+    url: config.apiUrl + `/comics/${userData.comic.id}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -49,7 +49,7 @@ game api.
 */
 const createComic = function (userData) {
   return $.ajax({
-    url: config.apiUrl + 'comics',
+    url: config.apiUrl + '/comics',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -60,7 +60,7 @@ const createComic = function (userData) {
 
 const allComics = function () {
   return $.ajax({
-    url: config.apiUrl + 'comics',
+    url: config.apiUrl + '/comics',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -70,7 +70,7 @@ const allComics = function () {
 
 const updateComic = function (userData) {
   return $.ajax({
-    url: config.apiUrl + `comics/${userData.comic.id}`,
+    url: config.apiUrl + `/comics/${userData.comic.id}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -81,7 +81,7 @@ const updateComic = function (userData) {
 
 const deleteComic = function (userData) {
   return $.ajax({
-    url: config.apiUrl + `comics/${userData.comic.id}`,
+    url: config.apiUrl + `/comics/${userData.comic.id}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -94,7 +94,7 @@ on the game api.
 */
 const logOut = function () {
   return $.ajax({
-    url: config.apiUrl + 'sign-out',
+    url: config.apiUrl + '/sign-out',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -108,7 +108,7 @@ the ajax call using the change-password api that connects to the game server.
 */
 const changePassword = function (password) {
   return $.ajax({
-    url: config.apiUrl + 'change-password',
+    url: config.apiUrl + '/change-password',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
