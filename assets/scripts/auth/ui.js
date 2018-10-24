@@ -100,7 +100,15 @@ const logOutFailure = function () {
 
 // Will display a green message informing the user the action was successful.
 const getComicSuccess = function (data) {
-  $('#display-message').html(`ID: ${data.comic.id} Title: ${data.comic.title} Issue: ${data.comic.issue}`)
+  $('#display-message').html('')
+  const comicHTML = (`
+   <h3>${data.comic.title}</h3>
+   <p>Issue: ${data.comic.issue}</p>
+   <p>ID: ${data.comic.id}<p>
+   `)
+  $('#display-message').append(comicHTML)
+  $('.reset').trigger('reset')
+  // $('#display-message').html(`ID: ${data.comic.id} Title: ${data.comic.title} Issue: ${data.comic.issue}`)
   $('#display-message').css('color', 'green')
   $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
@@ -111,7 +119,7 @@ const getComicSuccess = function (data) {
 
 // Will display a red message informing the user the action failed.
 const getComicFailure = function () {
-  $('#display-message').html("Try Again, Comic Dosen't Exist.")
+  $('#display-message').html("Comic Dosen't Exist, Try Again.")
   $('#display-message').css('color', 'red')
   $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
@@ -122,19 +130,22 @@ const getComicFailure = function () {
 
 // Will display a green message informing the user the action was successful.
 const allComicsSuccess = function (data) {
-  $('#display-message').html('')
-  data.comics.forEach(comic => {
-    const comicHTML = (`
+  if (data.comics.length !== 0) {
+    $('#display-message').html('')
+    data.comics.forEach(comic => {
+      const comicHTML = (`
      <h3>${comic.title}</h3>
      <p>Issue: ${comic.issue}</p>
      <p>ID: ${comic.id}<p>
      `)
-    $('#display-message').append(comicHTML)
-    $('.reset').trigger('reset')
-  })
-
-  // $('#display-message').html(`You have ${comicHTML} comics in the database.`)
-  $('#display-message').css('color', 'green')
+      $('#display-message').append(comicHTML)
+      $('#display-message').css('color', 'green')
+      $('.reset').trigger('reset')
+    })
+  } else {
+    $('#display-message').html('You Need To Upload A Comic!')
+    $('#display-message').css('color', 'red')
+  }
   $('#your-comics-form').trigger('reset')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')
@@ -166,7 +177,7 @@ const createComicSuccess = function (response) {
 
 // Will display a red message informing the user the action failed.
 const createComicFailure = function () {
-  $('#display-message').html('Failed! Please Try Again.')
+  $('#display-message').html('Failed To Upload Comic!')
   $('#display-message').css('color', 'red')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')
@@ -185,7 +196,7 @@ const updateComicSuccess = function () {
 
 // Will display a red message informing the user the action failed.
 const updateComicFailure = function () {
-  $('#display-message').html('Failed! Please Try Again.')
+  $('#display-message').html("ID Doesn't Match Comic!")
   $('#display-message').css('color', 'red')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')
@@ -204,7 +215,7 @@ const deleteComicSuccess = function () {
 
 // Will display a red message informing the user the action failed.
 const deleteComicFailure = function () {
-  $('#display-message').html('Failed! Please Try Again.')
+  $('#display-message').html("ID Doesn't Match Comic!")
   $('#display-message').css('color', 'red')
   $('#update-comic-form').trigger('reset')
   $('#delete-comic-form').trigger('reset')

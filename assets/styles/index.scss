@@ -22,14 +22,23 @@ a:hover {
   color: white;
 }
 
+h1 {
+  color: Blue;
+}
 legend {
 font-size: 30px;
 padding: 13px 0;
+color: Blue;
 }
 
 input [type=text] {
 border: none;
 border-bottom: 3px solid black;
+}
+
+button {
+  height: 60px;
+  width: 80px;
 }
 
 .all {
