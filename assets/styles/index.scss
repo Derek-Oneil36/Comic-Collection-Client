@@ -36,6 +36,10 @@ border: none;
 border-bottom: 3px solid black;
 }
 
+form {
+  background-color: hsla(50, 50%, 50%, 0.5);
+}
+
 button {
   height: 60px;
   width: 80px;
@@ -49,7 +53,9 @@ button {
   float: right;
 }
 
-
+.display-message {
+    background-color: hsla(50, 50%, 50%, 0.5);
+}
 
 .hidden {
   display: none;
